@@ -1,0 +1,90 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.wrapper {
+	width: 500px;
+	margin: 20px auto;
+	padding-top: 20px;
+}
+.scope{
+	height: 10px;
+	border-radius: 5px;
+	border: 2px solid #6496c9;
+	background: #b6d6f6;
+	position: relative;
+	cursor: pointer;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.dot{
+	width: 20px;
+	height: 20px;
+	background: #bcbcbd;
+	border-radius: 50%;
+	box-shadow: 0 -5px 10px #fff inset,
+				0 1px 2px #fff inset,
+				1px 1px 2px #000;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+.dot:active,
+.dot:hover {
+	box-shadow: 0 -5px 10px #fff inset,
+				0 1px 2px #fff inset,
+				1px 1px 2px #000,
+				0 0 10px #111;
+}
+.dot::before {
+	content: attr(data-sub);
+	position: absolute;
+	top: -130%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.ruler {
+	margin: 10px 0;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+.ruler li {
+	position: relative;
+	font-size: 12px;
+	user-select: none;
+	list-style: none;
+}
+.ruler li::after {
+	content: attr(data-size);
+	padding-top: 2px;
+	display: block;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.ruler li::before {
+	content: '';
+	display: block;
+	width: 1px;
+	height: 10px;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #000;
+}
+p {
+	transform-origin: left center;
+}
+.noselected {
+	user-select: none;
+}
